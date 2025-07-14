@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Malla Curricular - Agronomía UTalca</title>
   <style>
     body {
@@ -19,7 +19,7 @@
     .semestre {
       margin-bottom: 30px;
       padding: 15px;
-      background: #ffffff;
+      background: #fff;
       border-left: 5px solid #2e7d32;
       border-radius: 5px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
@@ -62,6 +62,7 @@
       border-radius: 4px;
       white-space: nowrap;
       display: none;
+      z-index: 10;
     }
 
     .materia:hover:after {
@@ -72,8 +73,6 @@
 <body>
 
 <h1>Malla Curricular - Agronomía (Universidad de Talca)</h1>
-
-<!-- SEMESTRES 1 AL 8 -->
 
 <!-- Semestre 1 -->
 <div class="semestre">
@@ -103,9 +102,9 @@
   <div class="materia" data-prereq="CAL1">FSI3 - Física</div>
   <div class="materia" data-prereq="CAL1">EST3 - Estadística</div>
   <div class="materia" data-prereq="ALG1, QI1">CAI2 - Cálculo II</div>
-  <div class="materia" data-prereq="QO2, BC1">BV3 - Bioquímica Vegetal</div>
+  <div class="materia" data-prereq="QI1, BC1">BV3 - Bioquímica Vegetal</div>
   <div class="materia" data-prereq="AMDV2">SV3 - Sistemática Vegetal</div>
-  <div class="materia" data-prereq="QO2, BC1, AGCH2">SPA1.3 - Sistemas Producción Animal I</div>
+  <div class="materia" data-prereq="COE2">SPA1.3 - Sistemas Producción Animal I</div>
   <div class="materia" data-prereq="COE2">AA3 - Autogestión del Aprendizaje</div>
   <div class="materia" data-prereq="ING2">ING3 - Idioma Extranjero III</div>
 </div>
@@ -113,7 +112,7 @@
 <!-- Semestre 4 -->
 <div class="semestre">
   <h2>Semestre 4</h2>
-  <div class="materia" data-prereq="AMDV2, AGCH2, CAI2, EST3">MI1.3 - Módulo Integración I</div>
+  <div class="materia" data-prereq="AMDV2, AGCH1, CAI2, EST3">MI1.3 - Módulo Integración I</div>
   <div class="materia">FAC4 - FAC</div>
   <div class="materia" data-prereq="BV3, AMDV2">EDF4 - Edafología</div>
   <div class="materia" data-prereq="BV3, AMDV2">FV4 - Fisiología Vegetal</div>
@@ -153,4 +152,30 @@
 <div class="semestre">
   <h2>Semestre 7</h2>
   <div class="materia" data-prereq="FRI6, TE6">BIOE7 - Bioestadística</div>
-  <div class="materia" data
+  <div class="materia" data-prereq="AG6C, TE6">AGC7 - Agronegocios y Comercialización</div>
+  <div class="materia" data-prereq="FRU6, SV2.6">MEF7 - Manejo de Enfermedades y Plagas</div>
+  <div class="materia" data-prereq="BIOE7">TRAB7 - Trabajo en Equipo Avanzado</div>
+  <div class="materia" data-prereq="ING6">ING7 - Idioma Extranjero VII</div>
+</div>
+
+<!-- Semestre 8 -->
+<div class="semestre">
+  <h2>Semestre 8</h2>
+  <div class="materia" data-prereq="TRAB7">PFG8 - Proyecto Final de Graduación</div>
+  <div class="materia" data-prereq="AGC7">AGR8 - Agricultura de Precisión</div>
+  <div class="materia" data-prereq="MEF7">MIE8 - Mejoramiento Genético</div>
+  <div class="materia" data-prereq="ING7">ING8 - Idioma Extranjero VIII</div>
+</div>
+
+<script>
+  function toggleCompletion(e) {
+    e.classList.toggle('completada');
+  }
+
+  document.querySelectorAll('.materia').forEach(m => {
+    m.addEventListener('click', () => toggleCompletion(m));
+  });
+</script>
+
+</body>
+</html>
